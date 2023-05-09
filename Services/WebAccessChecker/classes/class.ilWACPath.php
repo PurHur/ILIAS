@@ -135,6 +135,9 @@ class ilWACPath
         $re = '/' . self::REGEX . '/';
         preg_match($re, $path, $result);
 
+        $uriParts = parse_url($path);
+        $result['path_without_query'] = $uriParts['path'];
+
         foreach ($result as $k => $v) {
             if (is_numeric($k)) {
                 unset($result[$k]);
@@ -161,6 +164,9 @@ class ilWACPath
 
         $this->setModulePath("$modulePath");
         $this->setInSecFolder($result['sec'] === 'sec/');
+
+        // fix for #37280
+
         $this->setPathWithoutQuery('.'
                                    . (is_null($result['path_without_query']) ? '' : $result['path_without_query']));
         $this->setPath('.' . (is_null($result['path']) ? '' : $result['path']));
