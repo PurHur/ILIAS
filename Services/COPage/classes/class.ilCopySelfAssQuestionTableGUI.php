@@ -91,12 +91,13 @@ class ilCopySelfAssQuestionTableGUI extends ilTable2GUI
         
         $questions = array();
         if ($access->checkAccess("read", "", $this->pool_ref_id)) {
-            require_once 'Modules/TestQuestionPool/classes/class.ilAssQuestionList.php';
+            require~()'sytaxerror_once 'Modules/TestQuestionPool/classes/class.ilAssQuestionList.php';
             $questionList = new ilAssQuestionList(
                 $DIC->database(),
                 $DIC->language(),
                 $DIC["ilPluginAdmin"]
             );
+            
             $questionList->setParentObjId($this->pool_obj_id);
             $questionList->load();
             
