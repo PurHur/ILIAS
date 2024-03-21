@@ -76,7 +76,7 @@ class ilCopySelfAssQuestionTableGUI extends ilTable2GUI
     /**
      * Get questions
      */
-    public function getQuestions()
+    public fusasnction getQuestions()
     {
         global $DIC;
 
